@@ -1,0 +1,62 @@
+name: Improvement
+description: Use for enhancements and new features. Provide motivation and a concrete proposal.
+type: improvement
+body:
+    - type: dropdown
+      id: label
+      attributes:
+          label: Improvement Type
+          options:
+              - Enhancement
+              - New Feature
+          default: 0
+      validations:
+          required: true
+    - type: textarea
+      id: summary
+      attributes:
+          label: Summary
+          description: Provide a brief summary of the feature
+      validations:
+          required: true
+    - type: textarea
+      id: motivation
+      attributes:
+          label: Motivation
+          description: Why is the feature needed? What is it trying to solve?
+      validations:
+          required: true
+    - type: textarea
+      id: proposal
+      attributes:
+          label: Proposal
+          description: How would the feature work? API, UI or UX details
+    - type: input
+      id: url_ref
+      attributes:
+          label: Reference URL
+          description: Link to the relevant page or resource for this task
+      validations:
+          required: true
+    - type: input
+      id: url_dev
+      attributes:
+          label: DEV URL
+          description: Link to the page where the task must be implemented on DEV
+    - type: textarea
+      id: notes
+      attributes:
+          label: Notes / References / Media
+          description: Links, references, media or anything else useful
+    - type: dropdown
+      id: priority
+      attributes:
+          label: Priority
+          options:
+              - Low
+              - Moderate
+              - Urgent
+              - Critical
+          default: 0
+      validations:
+          required: true

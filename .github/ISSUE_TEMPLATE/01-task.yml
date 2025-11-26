@@ -1,0 +1,43 @@
+name: New Task
+description: Use this template for general tasks. Include a concise summary and any necessary details.
+type: task
+body:
+    - type: textarea
+      id: details
+      attributes:
+          label: Details
+          description: Full description, acceptance criteria or steps
+          placeholder: |
+              - What needs to be done
+              - Acceptance criteria
+      validations:
+          required: true
+    - type: input
+      id: url_ref
+      attributes:
+          label: Reference URL
+          description: Link to the relevant page or resource for this task
+      validations:
+          required: true
+    - type: input
+      id: url_dev
+      attributes:
+          label: DEV URL
+          description: Link to the page where the task must be implemented on DEV
+    - type: textarea
+      id: notes
+      attributes:
+          label: Notes / References / Media
+          description: Links, references, media or anything else useful
+    - type: dropdown
+      id: priority
+      attributes:
+          label: Priority
+          options:
+              - Low
+              - Moderate
+              - Urgent
+              - Critical
+          default: 0
+      validations:
+          required: true
