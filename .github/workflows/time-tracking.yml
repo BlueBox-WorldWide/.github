@@ -1,0 +1,27 @@
+name: Time Tracking
+
+on:
+  push:
+    branches: 
+      - '**'
+      - '!refs/pull/**'
+  issue_comment:
+    types: [created, edited, deleted]
+  workflow_dispatch:
+    inputs:
+      issue_number:
+        description: 'Time Tracking'
+        required: false
+        type: number
+
+jobs:
+  call_reusable:
+    # Skip if this is a merge commit
+    if: github.event_name != 'push' || !contains(github.event.head_commit.message, 'Merge pull request') && !contains(github.event.head_commit.message, 'Merge branch')
+    uses: BlueBox-WorldWide/git/.github/workflows/time-tracking.yml@main
+    with:
+      project_number: ${{ vars.PROJECT_NUMBER && fromJSON(vars.PROJECT_NUMBER) || 0 }}
+      issue_number: ${{ inputs.issue_number || 0 }}
+      event_name: ${{ github.event_name }}
+      event_data: ${{ toJSON(github.event) }}
+    secrets: inherit
